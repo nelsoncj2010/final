@@ -40,7 +40,3 @@ firebase.auth().onAuthStateChanged(async function(user) {
  
   }
 })
-
-// <!-- Add signout out button to top right of homepage  -->
-
-

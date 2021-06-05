@@ -4,43 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAISON DELACOUR</title>
+    <title>favorite restaurants</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-    <div>
-        <h1 class="text-green-800 text-center">
-            <a href="index.html">home</a>
-            <a href="restaurant.html">restaurant</a>
-            <a href="menu.html">menu</a>
-            <a href="chefbio.html">chef</a>
+<body>    
+    <div>        
+          <h1 class="text-green-800 text-center">
+            <a href="homepage.html">home</a>
+            <a href="viewinfo.html">favorite restaurants</a>            
         </h1>
     </div>
-        <h1 class="text-green-800 text-center text-4xl">Welcome to <strong>MAISON DELACOUR!</strong> </h1>
+    <div class="sign-in-or-sign-out"></div>
+    <!-- Add welcome to name of logged in individual based on authorization databse -->
     <div>
-        <img class="border-8 w-1/2 mx-auto" src="logo.jpg">
+        <h1 class="text-green-800 text-center text-4xl"><strong>BEST RESTAURANTS</strong> </h1>
+    </div>
+       </div>
+    <div class="m-4">
+        <h2 class="text-green-800 text-center"> <strong>where you've been</strong> </h2>
+        <div class="sm:flex">
+            <img class="sm:border-8 w-1/5 mx-auto" src="rest1.jpg">
+            <img class="sm:border-8 w-1/5 mx-auto" src="rest2.jpg">
+            <img class="sm:border-8 w-1/5 mx-auto" src="rest3.jpg">
+            <img class="sm:border-8 w-1/5 mx-auto" src="rest4.jpg">
+            <img class="sm:border-8 w-1/5 mx-auto" src="rest5.jpg">            
+        </div>
     </div>
     <div class="m-4">
-        <h2 class="text-green-800 text-center"> <strong>Reservations</strong> </h2>
-        <p class="text-center">We gladly accept reservations for group sizes of up to eight people. You can make reservations by calling us at 555-555-5555.</p>
+        <h2 class="text-green-800 text-center"><strong>news from the food world</strong> </h2>
+        <div class=text-center>
+            <li><a href="https://www.nrn.com/">Restaurant News</a></li>
+            <li><a href="https://www.foodnetwork.com/magazine">Food Network</a></li>
+            <li><a href="https://www.foodandwine.com/">Food and Wine</a></li>
+        </div>
     </div>
-    <div class="m-4">
-        <h2 class="text-green-800 text-center"><strong>Address</strong> </h2>
-        <p class="text-center">9319 SKOKIE BLVD, SKOKIE, IL, 60077, USA  555 555 5555</p>
+        <div class="m-4">
+            <h2 class="text-green-800 text-center"> <strong>friends</strong> </h2>
+            <div class="sm:flex">
+                <img class="rounded-full sm:border-8 w-1/5 mx-auto" src="f1.jpg">
+                <img class="rounded-full sm:border-8 w-1/5 mx-auto" src="f2.jpg">
+                <img class="rounded-full sm:border-8 w-1/5 mx-auto" src="f3.jpg">         
+                <img class="rounded-full sm:border-8 w-1/5 mx-auto" src="f6.jpg">
+                <img class="rounded-full sm:border-8 w-1/5 mx-auto" src="f7.jpg">
+                      
+            </div>
     </div>
-    <div>
-        <h2 class="text-green-800 text-center"><strong>Subscribe to Our Newsletter!</strong> </h2>
-        <form class="text-center">
-            <label for="name">First and Last Name</label>
-            <input type="text" id="name" name="name">
-          
-            <label for="favorite-color">Email Address</label>
-            <input type="text" id="favorite-color" name="favoriteColor">
-          
-            <button class="text-green-800">Submit</button>
-          </form>
-    </div>
+  
 
+    <div class="sign-in-or-sign-out"></div>
+   
+    <!-- Put the Firebase config here -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+  
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+      apiKey: "AIzaSyBt7np1055_xgsC7UdTR1FA6J-1_yqgmoM",
+      authDomain: "kiei-451-d42db.firebaseapp.com",
+      projectId: "kiei-451-d42db",
+      storageBucket: "kiei-451-d42db.appspot.com",
+      messagingSenderId: "23523507772",
+      appId: "1:23523507772:web:dce6b300d75c5687c70d39"
+      } // replace
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="homepage.js"></script>
+   
     
 </body>
 </html>
