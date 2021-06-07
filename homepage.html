@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Create the header of our website that will be displayed in the chrome tab -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>favorite restaurants</title>
+    <title>Best Restaurants</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
 </head>
-<body>    
+
+<body>  
+    <!-- Create the tabs that will go back and forth between the user's homepage and tab to add -->  
     <div>        
           <h1 class="text-green-800 text-center">
             <a href="homepage.html">home</a>
@@ -15,11 +19,14 @@
         </h1>
     </div>
     <div class="sign-in-or-sign-out"></div>
-    <!-- Add welcome to name of logged in individual based on authorization databse -->
+
+    <!-- Add header text to individual's homepage 'Best Restaurants' (name of app) -->
     <div>
         <h1 class="text-green-800 text-center text-4xl"><strong>BEST RESTAURANTS</strong> </h1>
     </div>
        </div>
+    
+    <!-- Create the 'where you've been section and add static images of restaurants visited -->
     <div class="m-4">
         <h2 class="text-green-800 text-center"> <strong>where you've been</strong> </h2>
         <div class="sm:flex">
@@ -30,6 +37,8 @@
             <img class="sm:border-8 w-1/5 mx-auto" src="rest5.jpg">            
         </div>
     </div>
+    
+    <!-- Create the 'news from the ' -->
     <div class="m-4">
         <h2 class="text-green-800 text-center"><strong>news from the food world</strong> </h2>
         <div class=text-center>
