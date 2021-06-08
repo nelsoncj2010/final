@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
     var restaurantsColl = db.collection("restaurants");
     
     // Your web app's Firebase configuration
-    
+    console.log(firebase.auth().currentUser.uid);
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         db.collection('restaurants').add({
