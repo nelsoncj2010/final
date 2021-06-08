@@ -13,21 +13,21 @@
 
 <!-- Create the form to add info on specific restuarant visited-->
 <body>
-    <form action="viewinfo.html" class="text-center mx-auto w-64">
+    <form onclick="buttonPress()" action="viewinfo.html" class="text-center mx-auto w-64">
         <label class="block font-bold" for="name">restaurant name</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="name" name="name">
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="name" name="restaurantName">
 
-        <label class="block mt-4 font-bold" for="favorite-color">address</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="favorite-color" name="favoriteColor">
+        <label class="block mt-4 font-bold" for="address">address</label>
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="address" name="address">
 
-        <label class="block mt-4 font-bold" for="favorite-color">favorite dishes</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="favorite-color" name="favoriteColor">
+        <label class="block mt-4 font-bold" for="favorite-dishes">favorite dishes</label>
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="favorite-dishes" name="favoriteDishes">
 
-        <label class="block mt-4 font-bold" for="favorite-color">review</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="favorite-color" name="favoriteColor">
+        <label class="block mt-4 font-bold" for="review">review</label>
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="review" name="review">
 
-        <label class="block mt-4 font-bold" for="favorite-color">url</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="favorite-color" name="favoriteColor">
+        <label class="block mt-4 font-bold" for="url">url</label>
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="url" name="url">
 
         <button class="inline-block align-middle block mt-4 border-gray-400 font-bold text-black bg-blue-200 rounded px-4 py-2">Submit</button>
     </form>
@@ -62,7 +62,7 @@
     firebase.initializeApp(firebaseConfig);
 
     var db = firebase.firestore();
-    
+
   </script>
   <script src="infoinput.js"></script>
     
