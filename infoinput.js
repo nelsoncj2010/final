@@ -19,8 +19,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
         document.location.href = `index.html`;
     })
 
-    //set destination
-    location.href  = "viewinfo.html";
 
     } else {
       // Signed out
@@ -46,7 +44,12 @@ form.addEventListener('submit', (e) => {
         dishes: form.dishes.value,
         // user: firebase.auth().currentUser.uid
     });
+
+    //set destination
+    location.href  = "viewinfo.html";
 });
+
+
 
 // // boilerplate testing code for initializing the collection
 // db.collection("restaurants").add({
