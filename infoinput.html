@@ -13,7 +13,7 @@
 
 <!-- Create the form to add info on specific restuarant visited-->
 <body>
-    <form onclick="buttonPress()" action="viewinfo.html" class="text-center mx-auto w-64">
+    <form action="viewinfo.html" class="text-center mx-auto w-64">
         <label class="block font-bold" for="name">restaurant name</label>
         <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="name" name="restaurantName">
 
@@ -29,7 +29,7 @@
         <label class="block mt-4 font-bold" for="url">url</label>
         <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="url" name="url">
 
-        <button class="inline-block align-middle block mt-4 border-gray-400 font-bold text-black bg-blue-200 rounded px-4 py-2">Submit</button>
+        <button onclick="buttonPress()" class="inline-block align-middle block mt-4 border-gray-400 font-bold text-black bg-blue-200 rounded px-4 py-2">Submit</button>
     </form>
 
  <!-- Put the Firebase config here -->
