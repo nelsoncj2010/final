@@ -19,24 +19,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
         document.location.href = `index.html`
     })
 
-    const db = firebase.firestore();
-    const form = document.querySelector('#add-restaurant-info')
-    
-    var restaurantsColl = db.collection("restaurants");
-    
-    // Your web app's Firebase configuration
-    console.log(firebase.auth().currentUser.uid);
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        db.collection('restaurants').add({
-            name: form.restaurantName.value,
-            address: form.address.value,
-            url: form.url.value,
-            review: form.review.value,
-            dishes: form.dishes.value,
-            // user: firebase.auth().currentUser.uid
-        });
-    
         location.href  = "viewinfo.html"
     });
 
@@ -48,6 +30,24 @@ firebase.auth().onAuthStateChanged(async function(user) {
     }
   });
 
+  const db = firebase.firestore();
+  const form = document.querySelector('#add-restaurant-info')
+  
+  var restaurantsColl = db.collection("restaurants");
+  
+  // Your web app's Firebase configuration
+  // console.log(firebase.auth().currentUser.uid);
+  form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      db.collection('restaurants').add({
+          name: form.restaurantName.value,
+          address: form.address.value,
+          url: form.url.value,
+          review: form.review.value,
+          dishes: form.dishes.value,
+        //   user: firebase.auth().currentUser.uid
+      });
+  
 
 
 // // boilerplate testing code for initializing the collection
