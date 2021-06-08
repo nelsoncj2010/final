@@ -42,7 +42,7 @@ form.addEventListener('submit', (e) => {
         url: form.url.value,
         review: form.review.value,
         dishes: form.dishes.value,
-        user: firebase.auth().currentUser.uid
+        // user: firebase.auth().currentUser.uid
     });
 
     location.href  = "viewinfo.html"
