@@ -64,6 +64,6 @@ function buttonPress() {
         console.error("Error adding document: ", error);
     });
 
-    location.href = "index.html"
+    location.href = "index.html";
 
 }
