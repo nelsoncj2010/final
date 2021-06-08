@@ -2,6 +2,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
       // Signed in
       console.log('signed in');
+      console.log(firebase.auth());
+        console.log(firebase.auth().currentUser)
   
     // Build the markup for the sign-out button and set the HTML in the header
     document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
@@ -19,6 +21,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
         document.location.href = `index.html`;
     })
 
+    var uid = firebase.auth().currentUser.uid;
 
     } else {
       // Signed out
@@ -32,9 +35,11 @@ const form = document.querySelector('#add-restaurant-info');
 
 var restaurantsColl = db.collection("restaurants");
 
-console.log(firebase.auth().currentUser.uid);
+console.log(firebase.auth());
+console.log(firebase.auth().currentUser)
 
-// Your web app's Firebase configuration
+
+// Your web app's Firebase configuration    
 // console.log(firebase.auth().currentUser.uid);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -44,13 +49,12 @@ form.addEventListener('submit', (e) => {
         url: form.url.value,
         review: form.review.value,
         dishes: form.dishes.value,
-        // user: firebase.auth().currentUser.uid
+
     });
 
     //set destination
     location.href  = "viewinfo.html";
 });
-
 
 
 // // boilerplate testing code for initializing the collection
