@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
         url: form.url.value,
         review: form.review.value,
         dishes: form.dishes.value,
-        user-email: form.user-email.value
+        usermail: form.userEmail.value
     });
 
     //set destination
