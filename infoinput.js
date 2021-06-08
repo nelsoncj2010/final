@@ -1,3 +1,18 @@
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBt7np1055_xgsC7UdTR1FA6J-1_yqgmoM",
+        authDomain: "kiei-451-d42db.firebaseapp.com",
+        projectId: "kiei-451-d42db",
+        storageBucket: "kiei-451-d42db.appspot.com",
+        messagingSenderId: "23523507772",
+        appId: "1:23523507772:web:dce6b300d75c5687c70d39"
+        } // replace
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    
+        var db = firebase.firestore();
+
 // boilerplate testing code for initializing the collection
 db.collection("users").add({
     first: "Ada",
