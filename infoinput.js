@@ -13,11 +13,10 @@ firebase.auth().onAuthStateChanged(async function(user) {
   
     // handle the sign out button click
     signOutButton.addEventListener(`click`, function(event) {
-    // sign out of firebase authentication
-    firebase.auth().signOut()
-  
-    // redirect to the home page
-    document.location.href = `index.html`
+        // sign out of firebase authentication
+        firebase.auth().signOut()
+        // redirect to the home page
+        document.location.href = `index.html`
     })
 
     const db = firebase.firestore();
@@ -35,7 +34,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
             url: form.url.value,
             review: form.review.value,
             dishes: form.dishes.value,
-            user: firebase.auth().currentUser.uid
+            // user: firebase.auth().currentUser.uid
         });
     
         location.href  = "viewinfo.html"
