@@ -1,22 +1,22 @@
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
       // Signed in
-      console.log('signed in')
+      console.log('signed in');
   
     // Build the markup for the sign-out button and set the HTML in the header
     document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
     <button class="text-pink-500 underline sign-out">Sign Out</button>
-    `
+    `;
 
     // get a reference to the sign out button
-    let signOutButton = document.querySelector(`.sign-out`)
+    let signOutButton = document.querySelector(`.sign-out`);
   
     // handle the sign out button click
     signOutButton.addEventListener(`click`, function(event) {
         // sign out of firebase authentication
-        firebase.auth().signOut()
+        firebase.auth().signOut();
         // redirect to the home page
-        document.location.href = `index.html`
+        document.location.href = `index.html`;
     })
 
     //set destination
@@ -24,8 +24,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
     } else {
       // Signed out
-      console.log('signed out')
-      location.href = "index.html"
+      console.log('signed out');
+      location.href = "index.html";
     }
 });
 
@@ -46,6 +46,7 @@ form.addEventListener('submit', (e) => {
         dishes: form.dishes.value,
         // user: firebase.auth().currentUser.uid
     });
+});
 
 // // boilerplate testing code for initializing the collection
 // db.collection("restaurants").add({
