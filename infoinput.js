@@ -32,6 +32,8 @@ const form = document.querySelector('#add-restaurant-info');
 
 var restaurantsColl = db.collection("restaurants");
 
+console.log(firebase.auth().currentUser.uid);
+
 // Your web app's Firebase configuration
 // console.log(firebase.auth().currentUser.uid);
 form.addEventListener('submit', (e) => {
