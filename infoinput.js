@@ -1,11 +1,25 @@
 
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBt7np1055_xgsC7UdTR1FA6J-1_yqgmoM",
+    authDomain: "kiei-451-d42db.firebaseapp.com",
+    projectId: "kiei-451-d42db",
+    storageBucket: "kiei-451-d42db.appspot.com",
+    messagingSenderId: "23523507772",
+    appId: "1:23523507772:web:dce6b300d75c5687c70d39"
+}
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
 var db = firebase.firestore();
 
 // boilerplate testing code for initializing the collection
-db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
+db.collection("restaurants").add({
+    name: "test",
+    address: "test"
 })
 .then((docRef) => {
     console.log("Document written with ID: ", docRef.id);
@@ -13,21 +27,6 @@ db.collection("users").add({
 .catch((error) => {
     console.error("Error adding document: ", error);
 });
-
-// Add a second document with a generated ID.
-db.collection("users").add({
-    first: "Alan",
-    middle: "Mathison",
-    last: "Turing",
-    born: 1912
-})
-.then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch((error) => {
-    console.error("Error adding document: ", error);
-});
-
 
 // pull out arguments from input fields
 var formValues = {};
@@ -40,7 +39,6 @@ for ( var i = 0; i < inputs.length; i++) {
     }, false);
 }
 
-
 var restaurantName = formValues['restaurantName'];
 var dishes = formValues['favoriteDishes'];
 var address = formValues['address'];
@@ -49,7 +47,6 @@ var url = formValues['url'];
 
 // save to DB
 var restaurantsColl = db.collection("restaurants");
-
 
 // prime the button
 function buttonPress() {
