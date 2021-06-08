@@ -1,17 +1,18 @@
-
+const db = firebase.firestore():
+const form = document.querySelector('#add-restaurant-info')
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBt7np1055_xgsC7UdTR1FA6J-1_yqgmoM",
-    authDomain: "kiei-451-d42db.firebaseapp.com",
-    projectId: "kiei-451-d42db",
-    storageBucket: "kiei-451-d42db.appspot.com",
-    messagingSenderId: "23523507772",
-    appId: "1:23523507772:web:dce6b300d75c5687c70d39"
-}
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('restaurants').add({
+        name: form.restaurantName,
+        address: form.address,
+        url: form.url,
+        review: form.review,
+        dishes: form.dishes,
+    });
+});
 
 
 var db = firebase.firestore();

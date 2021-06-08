@@ -13,23 +13,23 @@
 
 <!-- Create the form to add info on specific restuarant visited-->
 <body>
-    <form class="text-center mx-auto w-64">
+    <form id="add-restaurant-info" class="text-center mx-auto w-64">
         <label class="block font-bold" for="name">restaurant name</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="name" name="restaurantName">
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" name="restaurantName">
 
         <label class="block mt-4 font-bold" for="address">address</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="address" name="address">
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" name="address">
 
         <label class="block mt-4 font-bold" for="favorite-dishes">favorite dishes</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="favorite-dishes" name="favoriteDishes">
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" name="favoriteDishes">
 
         <label class="block mt-4 font-bold" for="review">review</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="review" name="review">
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" name="review">
 
         <label class="block mt-4 font-bold" for="url">url</label>
-        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" id="url" name="url">
+        <input class="p-2 w-64 border border-gray-400 rounded shadow focus:outline-none focus:ring-purple-500 focus:border-purple-500" type="text" name="url">
 
-        <button onclick="buttonPress()" class="inline-block align-middle block mt-4 border-gray-400 font-bold text-black bg-blue-200 rounded px-4 py-2">Submit</button>
+        <button class="inline-block align-middle block mt-4 border-gray-400 font-bold text-black bg-blue-200 rounded px-4 py-2">Submit</button>
     </form>
 
  <!-- Put the Firebase config here -->
@@ -45,7 +45,20 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
 
     <!-- Firebase Firestore -->
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyBt7np1055_xgsC7UdTR1FA6J-1_yqgmoM",
+    authDomain: "kiei-451-d42db.firebaseapp.com",
+    projectId: "kiei-451-d42db",
+    storageBucket: "kiei-451-d42db.appspot.com",
+    messagingSenderId: "23523507772",
+    appId: "1:23523507772:web:dce6b300d75c5687c70d39"
 
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+}
+
+</script>
   <script src="infoinput.js"></script>
     
 </body>
