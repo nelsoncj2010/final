@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
     document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
     <button class="text-pink-500 underline sign-out">Sign Out</button>
     `
-  
+
     // get a reference to the sign out button
     let signOutButton = document.querySelector(`.sign-out`)
   
@@ -19,36 +19,33 @@ firebase.auth().onAuthStateChanged(async function(user) {
         document.location.href = `index.html`
     })
 
-        location.href  = "viewinfo.html"
-    });
+    //set destination
+    location.href  = "viewinfo.html";
 
     } else {
       // Signed out
       console.log('signed out')
-
       location.href = "index.html"
     }
-  });
+});
 
-  const db = firebase.firestore();
-  const form = document.querySelector('#add-restaurant-info')
-  
-  var restaurantsColl = db.collection("restaurants");
-  
-  // Your web app's Firebase configuration
-  // console.log(firebase.auth().currentUser.uid);
-  form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      db.collection('restaurants').add({
-          name: form.restaurantName.value,
-          address: form.address.value,
-          url: form.url.value,
-          review: form.review.value,
-          dishes: form.dishes.value,
-        //   user: firebase.auth().currentUser.uid
-      });
-  
+const db = firebase.firestore();
+const form = document.querySelector('#add-restaurant-info')
 
+var restaurantsColl = db.collection("restaurants");
+
+// Your web app's Firebase configuration
+// console.log(firebase.auth().currentUser.uid);
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('restaurants').add({
+        name: form.restaurantName.value,
+        address: form.address.value,
+        url: form.url.value,
+        review: form.review.value,
+        dishes: form.dishes.value,
+        // user: firebase.auth().currentUser.uid
+    });
 
 // // boilerplate testing code for initializing the collection
 // db.collection("restaurants").add({
