@@ -21,8 +21,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
             document.location.href = `index.html`
         })
 
-        let form = document.querySelector(`.add-restaurant-info`)
-
+        let form = document.querySelector(`#add-restaurant-info`)
         // set up event listener for the submit button
         form.addEventListener('submit', async function(e) {
             e.preventDefault()
