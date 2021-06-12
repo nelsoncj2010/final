@@ -9,7 +9,7 @@ exports.handler = async function(e) {
 
     // query restaurants
     let restaurantsQuery = await db.collection(`restaurants`).where(`user`, `==`, qsParams.user)
-    let restaurants = postQuery.docs()
+    let restaurants = restaurantsQuery.docs()
 
     for (let i = 0; i < restaurants.length; i++) {
         // get restaurant info
