@@ -31,7 +31,7 @@ exports.handler = async function(e) {
     
             // query dishes related to this restaurant
             let dishesQuery = await db.collection(`dishes`).where(`user`, `==`, qsParams.user).where(`restaurant`, `==`, rId)
-            let dishes = dishesQuery.docs()
+            let dishes = dishesQuery.docs
     
             // loop through related dishes
             for (let j = 0; j < dishes.length; j++) {
