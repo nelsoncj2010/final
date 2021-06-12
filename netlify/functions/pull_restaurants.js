@@ -43,8 +43,9 @@ exports.handler = async function(e) {
                     rJson.dishes.push(dData)
                 }
             }
-
-        returnValue.push(rJson)
+            
+            returnValue.push(rJson)
+        }
     }
 
     return {
