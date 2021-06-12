@@ -8,12 +8,12 @@ exports.handler = async function(e) {
     let qsParams = e.queryStringParameters
 
     // query restaurants
-    let restaurantsQuery = await db.collection(`restaurants`).where(`user`, `==`, qsParams.user)
+    let restaurantsQuery = await db.collection(`restaurants`).where(`user`, `==`, qsParams.user).get()
     console.log(restaurantsQuery)
     let restaurants = restaurantsQuery.docs
     console.log(restaurants)
 
-    if (restaurants.length > 0) {
+    if (restaurants) {
 
         for (let i = 0; i < restaurants.length; i++) {
             // get restaurant info
