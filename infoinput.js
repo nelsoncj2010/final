@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
             // loop over restaurant JSON to build full url
             Object.keys(restaurantInput).forEach(function(key) {
-                let addRestaurantAPIString = addRestaurantAPIString + key + "=" + restaurantInput[key].value + "&"
+                addRestaurantAPIString = addRestaurantAPIString + key + "=" + restaurantInput[key].value + "&"
             })
 
             console.log(addRestaurantAPIString)
