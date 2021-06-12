@@ -1,7 +1,7 @@
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
         // Signed in
-        console.log('signed in');]
+        console.log('signed in');
   
         // handle sign-out button
 
@@ -39,7 +39,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
             let addRestaurantAPIString = "/.netlify/functions/add_restaurant?"
 
             // loop over restaurant JSON to build full url
-            Object.keys(restaurantInput).forEach( function(key) {
+            Object.keys(restaurantInput).forEach(function(key) {
                 let addRestaurantAPIString = addRestaurantAPIString + key + "=" + restaurantInput[key].value + "&"
             })
 
