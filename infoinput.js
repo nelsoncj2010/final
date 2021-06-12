@@ -1,77 +1,92 @@
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
-      // Signed in
-      console.log('signed in');
-      console.log(firebase.auth());
-        console.log(firebase.auth().currentUser)
+        // Signed in
+        console.log('signed in');]
   
-    // Build the markup for the sign-out button and set the HTML in the header
-    document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
-    <button class="text-pink-500 underline sign-out">Sign Out</button>
-    `;
+        // handle sign-out button
 
-    // get a reference to the sign out button
-    let signOutButton = document.querySelector(`.sign-out`);
-  
-    // handle the sign out button click
-    signOutButton.addEventListener(`click`, function(event) {
-        // sign out of firebase authentication
-        firebase.auth().signOut();
-        // redirect to the home page
-        document.location.href = `index.html`;
-    })
+        // Build the markup for the sign-out button and set the HTML in the header
+        document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
+        <button class="text-pink-500 underline sign-out">Sign Out</button>
+        `
 
-    var uid = firebase.auth().currentUser.uid;
+        // get a reference to the sign out button
+        let signOutButton = document.querySelector(`.sign-out`)
+    
+        // handle the sign out button click
+        signOutButton.addEventListener(`click`, function(event) {
+            // sign out of firebase authentication
+            firebase.auth().signOut();
+            // redirect to the home page
+            document.location.href = `index.html`
+        })
 
-    // Your web app's Firebase configuration    
-    // console.log(firebase.auth().currentUser.uid);
-    form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    db.collection('restaurants').add({
-        name: form.restaurantName.value,
-        address: form.address.value,
-        url: form.url.value,
-        review: form.review.value,
-        dishes: form.dishes.value,
-        usermail: form.userEmail.value
-    });
+        // set up event listener for the submit button
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
 
-    //set destination
-    location.href  = "viewinfo.html";
-});
+            // create a json object for the restaurant based on user input
+            let restaurantInput = {
+                name: form.restaurantName.value,
+                address: form.address.value,
+                url: form.url.value,
+                review: form.review.value,
+                dishes: form.dishes.value,
+                user: user.uid
+            }
+
+            //prime the API URL string
+            let addRestaurantAPIString = "/.netlify/functions/add_restaurant?"
+
+            // loop over restaurant JSON to build full url
+            Object.keys(restaurantInput).forEach( function(key) {
+                let addRestaurantAPIString = addRestaurantAPIString + key + "=" + restaurantInput[key].value + "&"
+            })
+
+            let resp = await fetch(addRestaurantAPIString)
+            let resp_json = resp.json()
+
+            // add restaurant object to the firestore collection using Netlify API
+            // db.collection('restaurants').add({
+
+            // });
+
+            //set destination
+            location.href  = "viewinfo.html"
+        })
 
     } else {
       // Signed out
-      console.log('signed out');
-      location.href = "index.html";
+      console.log('signed out')
+      location.href = "index.html"
     }
 });
 
-const db = firebase.firestore();
-const form = document.querySelector('#add-restaurant-info');
+// const db = firebase.firestore();
+// const form = document.querySelector('#add-restaurant-info');
 
-var restaurantsColl = db.collection("restaurants");
+// var restaurantsColl = db.collection("restaurants");
 
-console.log(firebase.auth());
-console.log(firebase.auth().currentUser)
+// console.log(firebase.auth());
+// console.log(firebase.auth().currentUser)
 
 
-// Your web app's Firebase configuration    
-// console.log(firebase.auth().currentUser.uid);
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    db.collection('restaurants').add({
-        name: form.restaurantName.value,
-        address: form.address.value,
-        url: form.url.value,
-        review: form.review.value,
-        dishes: form.dishes.value,
+// // Your web app's Firebase configuration    
+// // console.log(firebase.auth().currentUser.uid);
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     db.collection('restaurants').add({
+//         name: form.restaurantName.value,
+//         address: form.address.value,
+//         url: form.url.value,
+//         review: form.review.value,
+//         dishes: form.dishes.value,
 
-    });
+//     });
 
-    //set destination
-    location.href  = "viewinfo.html";
-});
+//     //set destination
+//     location.href  = "viewinfo.html";
+// });
 
 
 // // boilerplate testing code for initializing the collection
@@ -125,3 +140,33 @@ form.addEventListener('submit', (e) => {
 //     location.href = "index.html";
 
 // }
+
+let sayHiButton = documen.querySelector(`.say-hi-button`)
+
+sayHiButton.addEventListener(`click`, async function(event) {
+    let nameInput = document.querySelector(`#first-name`)
+    let firstName = nameInput.value
+    let greetElement = document.querySelector(`.greet`)
+    let greetElement.innerHTML = `Hi ${FIRSTNAME}`
+
+
+})
+
+
+document.addEventListener('DOMContentLoaded', async function(event) {
+    let submitButton = document.querySelector(`button`)
+    submitButton.addEventListener(`click`, async function(event) {
+        event.preventDefault()
+        let url = `https://api.coindesk.com/v1/bpi/currentprice/USD.json`
+        let response = await fetch(url)
+
+        let json = response.json()
+
+        console.log(json)
+
+        let currentPriceUSD = json.bpi.USD.rate_float
+
+        
+
+    })
+})

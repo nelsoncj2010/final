@@ -1,6 +1,8 @@
-const firebase = require("firebase")
+const firebase = require("firebase/app")
 require("firebase/firestore")
 // require("firebase/app")
+
+//week 7 repo has more info
 
 const firebaseConfig = {
   apiKey: "AIzaSyBt7np1055_xgsC7UdTR1FA6J-1_yqgmoM",
