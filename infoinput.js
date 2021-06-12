@@ -142,32 +142,32 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
 // }
 
-let sayHiButton = documen.querySelector(`.say-hi-button`)
+// let sayHiButton = documen.querySelector(`.say-hi-button`)
 
-sayHiButton.addEventListener(`click`, async function(event) {
-    let nameInput = document.querySelector(`#first-name`)
-    let firstName = nameInput.value
-    let greetElement = document.querySelector(`.greet`)
-    let greetElement.innerHTML = `Hi ${FIRSTNAME}`
-
-
-})
+// sayHiButton.addEventListener(`click`, async function(event) {
+//     let nameInput = document.querySelector(`#first-name`)
+//     let firstName = nameInput.value
+//     let greetElement = document.querySelector(`.greet`)
+//     let greetElement.innerHTML = `Hi ${FIRSTNAME}`
 
 
-document.addEventListener('DOMContentLoaded', async function(event) {
-    let submitButton = document.querySelector(`button`)
-    submitButton.addEventListener(`click`, async function(event) {
-        event.preventDefault()
-        let url = `https://api.coindesk.com/v1/bpi/currentprice/USD.json`
-        let response = await fetch(url)
+// })
 
-        let json = response.json()
 
-        console.log(json)
+// document.addEventListener('DOMContentLoaded', async function(event) {
+//     let submitButton = document.querySelector(`button`)
+//     submitButton.addEventListener(`click`, async function(event) {
+//         event.preventDefault()
+//         let url = `https://api.coindesk.com/v1/bpi/currentprice/USD.json`
+//         let response = await fetch(url)
 
-        let currentPriceUSD = json.bpi.USD.rate_float
+//         let json = response.json()
+
+//         console.log(json)
+
+//         let currentPriceUSD = json.bpi.USD.rate_float
 
         
 
-    })
-})
+//     })
+// })

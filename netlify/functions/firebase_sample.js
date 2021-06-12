@@ -1,51 +1,51 @@
-// import firebase
-let firebase = require(`./firebase`)
+// // import firebase
+// let firebase = require(`./firebase`)
 
-exports.handler = async function(e) {
+// exports.handler = async function(e) {
 
-    let returnValue = []
+//     let returnValue = []
 
-    let db = firebase.firestore()
+//     let db = firebase.firestore()
 
-    let postsQuery = await db.collection(`posts`).get()
-    let posts = postQuery.docs()
+//     let postsQuery = await db.collection(`posts`).get()
+//     let posts = postQuery.docs()
 
-    console.log(posts)
+//     console.log(posts)
 
-    for (let i=0; i < posts.length; i++) {
-        let postId = posts[i].id
-        console.log(postId)
+//     for (let i=0; i < posts.length; i++) {
+//         let postId = posts[i].id
+//         console.log(postId)
 
-        let postData = posts.id.data()
+//         let postData = posts.id.data()
 
-        let postObject = {
-            id: postId,
-            imageURL: postData.imageUrl,
-            numberOfLikes: postData.numberOfLikes
-            comments: []
-        }
+//         let postObject = {
+//             id: postId,
+//             imageURL: postData.imageUrl,
+//             numberOfLikes: postData.numberOfLikes
+//             comments: []
+//         }
 
-        let commentsQuery = await db.collection(`comments`).where(`postId`, `==`, postId).get()
-        let comments = commentsQuery.docs()
+//         let commentsQuery = await db.collection(`comments`).where(`postId`, `==`, postId).get()
+//         let comments = commentsQuery.docs()
 
-        for (let j = 0;  < comments.length; j++) {
-            let commentId = comments[j].id 
-            let commentData = comments[j].data()
+//         for (let j = 0;  < comments.length; j++) {
+//             let commentId = comments[j].id 
+//             let commentData = comments[j].data()
 
-            let commentJson = {
-                id: commentId,
-                body: commentData.body
-            }
+//             let commentJson = {
+//                 id: commentId,
+//                 body: commentData.body
+//             }
 
-            postObject.comments.push(commentJson)
-        }
+//             postObject.comments.push(commentJson)
+//         }
 
-        returnValue.push(postObject)
+//         returnValue.push(postObject)
 
-    }
+//     }
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify(returnValue)
-    }
-}
+//     return {
+//         statusCode: 200,
+//         body: JSON.stringify(returnValue)
+//     }
+// }
