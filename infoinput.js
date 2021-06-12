@@ -43,6 +43,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
                 let addRestaurantAPIString = addRestaurantAPIString + key + "=" + restaurantInput[key].value + "&"
             })
 
+            console.log(addRestaurantAPIString)
             let resp = await fetch(addRestaurantAPIString)
             let resp_json = resp.json()
 
