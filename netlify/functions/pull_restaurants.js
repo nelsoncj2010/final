@@ -11,8 +11,6 @@ exports.handler = async function(e) {
     let restaurantsQuery = await db.collection(`restaurants`).where(`user`, `==`, qsParams.user).get()
     let restaurants = restaurantsQuery.docs
 
-    let rJson = {}
-
     if (restaurants) {
 
         for (let i = 0; i < restaurants.length; i++) {
@@ -21,7 +19,7 @@ exports.handler = async function(e) {
             let rData = restaurants[i].data()
     
             // define restaurant Json
-            rJson = {
+            let rJson = {
                 name : rData.name,
                 url : rData.url,
                 dishes : [],
@@ -45,8 +43,7 @@ exports.handler = async function(e) {
                     rJson.dishes.push(dData)
                 }
             }
-    }
-
+            
         returnValue.push(rJson)
     }
 
