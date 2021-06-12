@@ -50,7 +50,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
     } else {
         // Signed out
         console.log('signed out')
-
         location.href = "index.html"
     }   
 });
