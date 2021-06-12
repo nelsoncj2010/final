@@ -2,12 +2,6 @@
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
 
-        // let url = `/.netlify/functions.posts`
-
-        // let response = await fetch(url)
-
-        // let data = await response.json()
-
       // Signed in
       console.log('signed in')
     
@@ -15,36 +9,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
         document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
         <button class="text-pink-500 underline sign-out">Sign Out</button>
         `
-
-        // console.log(firebase.auth().currentUser); 
-
-        // const db = firebase.firestore();
-        // const form = document.querySelector('#add-restaurant-info');
-        // var restaurantsColl = db.collection("restaurants");
-    
-        //   restaurantsColl.where("user", "==", firebase.auth().currentUser.uid)
-        //   .get()
-        //   .then((querySnapshot) => {
-        //       console.log(querySnapshot);
-        //       querySnapshot.forEach((doc) => {
-        //         // var restaurantC = row.insertCell(0);
-        //         // var dishesC = row.insertCell(1);
-        //         // var reviewC = row.insertCell(2);
-        //         // var urlC = row.insertCell(3);
-        //         // var addressC = row.insertCell(4);
-
-        //         // restaurantC.innerHTML = doc.data()  
-
-        //         // cell1.innerHTML = 
-
-        //           console.log(doc.id, " => ", doc.data());
-        //       });
-        //   })
-        //   .catch((error) => {
-        //       console.log("Error getting documents: ", error);
-        //   });    
-
-
   
         // get a reference to the sign out button
         let signOutButton = document.querySelector(`.sign-out`)
@@ -57,6 +21,32 @@ firebase.auth().onAuthStateChanged(async function(user) {
             // redirect to the home page
             document.location.href = `index.html`
         })
+
+        // populate restaurant entries
+        let requestURL = "/.netlify/functions/pull_restaurants?user=" + user.uid
+        let resp = await fetch(requestURL)
+        let restaurants = await resp.json()
+        console.log(restaurants)
+
+        // display div
+        let displayDiv = document.querySelector(`.restaurant-info`)
+
+        restaurants.body.forEach(function(retaurantJson) {
+
+            displayDiv.insertAdjacentHTML(`beforeend`, `
+                <div class="text-center">Restaurant: ${restaurantJson.name}</div>
+                <div class="text-center">URL: ${restaurantJson.url}</div>
+                <div class="text-center">Review: ${restaurantJson.review}</div>
+                <div class="text-center">Address: ${restaurantJson.address}</div>
+            `)
+
+            restaurants.body.dishes.forEach(function(dishJson) {
+                displayDiv.insertAdjacentHTML(`beforeend`, `
+                    <div class="text-center">Dish: ${dishJson.dish}</div>
+                `)
+            })
+        })
+
     } else {
         // Signed out
         console.log('signed out')
@@ -107,6 +97,33 @@ firebase.auth().onAuthStateChanged(async function(user) {
 // })
 
 
+        // console.log(firebase.auth().currentUser); 
+
+        // const db = firebase.firestore();
+        // const form = document.querySelector('#add-restaurant-info');
+        // var restaurantsColl = db.collection("restaurants");
+    
+        //   restaurantsColl.where("user", "==", firebase.auth().currentUser.uid)
+        //   .get()
+        //   .then((querySnapshot) => {
+        //       console.log(querySnapshot);
+        //       querySnapshot.forEach((doc) => {
+        //         // var restaurantC = row.insertCell(0);
+        //         // var dishesC = row.insertCell(1);
+        //         // var reviewC = row.insertCell(2);
+        //         // var urlC = row.insertCell(3);
+        //         // var addressC = row.insertCell(4);
+
+        //         // restaurantC.innerHTML = doc.data()  
+
+        //         // cell1.innerHTML = 
+
+        //           console.log(doc.id, " => ", doc.data());
+        //       });
+        //   })
+        //   .catch((error) => {
+        //       console.log("Error getting documents: ", error);
+        //   });    
 
 
 // //week 8

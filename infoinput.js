@@ -46,12 +46,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
             console.log(addRestaurantAPIString)
             let resp = await fetch(addRestaurantAPIString)
-            let resp_json = resp.json()
-
-            // add restaurant object to the firestore collection using Netlify API
-            // db.collection('restaurants').add({
-
-            // });
 
             //set destination
             location.href  = "viewinfo.html"
