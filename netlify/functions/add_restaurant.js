@@ -19,7 +19,8 @@ exports.handler = async function(event) {
     // user restaurant reference to insert dish with a foreign restaurant key
     let newDish = await db.collection(`dishes`).add({
         restaurant : newRestaurant.id,
-        dish : qsParams.dishes
+        dish : qsParams.dishes,
+        user: qsParams.user
     })   
 
     returnValue.push({
