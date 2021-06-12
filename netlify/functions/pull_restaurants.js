@@ -28,7 +28,7 @@ exports.handler = async function(e) {
             }
     
             // query dishes related to this restaurant
-            let dishesQuery = await db.collection(`dishes`).where(`user`, `==`, qsParams.user).where(`restaurant`, `==`, rId)
+            let dishesQuery = await db.collection(`dishes`).where(`user`, `==`, qsParams.user).where(`restaurant`, `==`, rId).get()
             let dishes = dishesQuery.docs
 
             // if there are any
@@ -43,7 +43,7 @@ exports.handler = async function(e) {
                     rJson.dishes.push(dData)
                 }
             }
-            
+
         returnValue.push(rJson)
     }
 
