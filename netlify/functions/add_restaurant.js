@@ -3,6 +3,7 @@ let firebase = require('./firebase')
 // /.netlify/functions/add_restaurant
 exports.handler = async function(event) {
     let firebase = require(`./firebase`)
+    let db = firebase.firestore()
     let qsParams = event.queryStringParameters
     let returnValue = []
 
