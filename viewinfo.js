@@ -28,24 +28,24 @@ firebase.auth().onAuthStateChanged(async function(user) {
         let restaurants = await resp.json()
         console.log(restaurants)
 
-        // // display div
-        // let displayDiv = document.querySelector(`.restaurant-info`)
+        // display div
+        let displayDiv = document.querySelector(`.restaurant-info`)
 
-        // restaurants.body.forEach(function(retaurantJson) {
+        restaurants.forEach(function(retaurantJson) {
 
-        //     displayDiv.insertAdjacentHTML(`beforeend`, `
-        //         <div class="text-center">Restaurant: ${restaurantJson.name}</div>
-        //         <div class="text-center">URL: ${restaurantJson.url}</div>
-        //         <div class="text-center">Review: ${restaurantJson.review}</div>
-        //         <div class="text-center">Address: ${restaurantJson.address}</div>
-        //     `)
+            displayDiv.insertAdjacentHTML(`beforeend`, `
+                <div class="text-center">Restaurant: ${restaurantJson.name}</div>
+                <div class="text-center">URL: ${restaurantJson.url}</div>
+                <div class="text-center">Review: ${restaurantJson.review}</div>
+                <div class="text-center">Address: ${restaurantJson.address}</div>
+            `)
 
-        //     restaurants.body.dishes.forEach(function(dishJson) {
-        //         displayDiv.insertAdjacentHTML(`beforeend`, `
-        //             <div class="text-center">Dish: ${dishJson.dish}</div>
-        //         `)
-        //     })
-        // })
+            restaurants.body.dishes.forEach(function(dishJson) {
+                displayDiv.insertAdjacentHTML(`beforeend`, `
+                    <div class="text-center">Dish: ${dishJson.dish}</div>
+                `)
+            })
+        })
 
     } else {
         // Signed out
