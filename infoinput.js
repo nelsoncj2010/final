@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
         })
 
         // set up event listener for the submit button
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault()
 
             // create a json object for the restaurant based on user input
