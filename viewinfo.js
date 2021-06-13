@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
         // let displayDiv = document.querySelectorAll(`div`)[2]
         // console.log(allDivs)
 
-        restaurants.forEach(function(retaurantJson) {
+        restaurants.forEach(function(restaurantJson) {
             console.log("THIS HAPPENED")
 
             console.log(restaurantJson.url)
