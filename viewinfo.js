@@ -29,12 +29,12 @@ firebase.auth().onAuthStateChanged(async function(user) {
         console.log(restaurants)
 
         // display div
-        // let displayDiv = document.querySelector(`.restaurant-info`)
+        let displayDiv = document.querySelector(`.restaurant-info.m4`)
         console.log(displayDiv)
         console.log(restaurants[0].name)
 
-        let displayDiv = document.querySelectorAll(`div`)[2]
-        console.log(allDivs)
+        // let displayDiv = document.querySelectorAll(`div`)[2]
+        // console.log(allDivs)
 
         restaurants.forEach(function(retaurantJson) {
             console.log("THIS HAPPENED")
