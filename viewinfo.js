@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
         console.log(restaurants)
 
         // display div
-        let displayDiv = document.querySelector(`.restaurant-info.m4`)
+        let displayDiv = document.querySelector(`.restaurant-info`)
         console.log(displayDiv)
         console.log(restaurants[0].name)
 
