@@ -36,18 +36,17 @@ firebase.auth().onAuthStateChanged(async function(user) {
         restaurants.forEach(function(retaurantJson) {
             console.log("THIS HAPPENED")
 
+            console.log(restaurantJson.url)
             displayDiv.insertAdjacentHTML(`beforeend`, `
                 <div class="text-center">Restaurant: ${restaurantJson.name}</div>
                 <div class="text-center">URL: ${restaurantJson.url}</div>
                 <div class="text-center">Review: ${restaurantJson.review}</div>
                 <div class="text-center">Address: ${restaurantJson.address}</div>
-                <br>
             `)
 
             restaurants.body.dishes.forEach(function(dishJson) {
                 displayDiv.insertAdjacentHTML(`beforeend`, `
                     <div class="text-center">Dish: ${dishJson.dish}</div>
-                    <br>
                 `)
             })
         })
