@@ -30,9 +30,12 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
         // display div
         let displayDiv = document.querySelector(`.restaurant-info`)
+        console.log(displayDiv)
+        console.log(restaurantJson.name)
 
         restaurants.forEach(function(retaurantJson) {
-            console.lot("THIS HAPPENED")
+            console.log("THIS HAPPENED")
+
 
             displayDiv.insertAdjacentHTML(`beforeend`, `
                 <div class="text-center">Restaurant: ${restaurantJson.name}</div>
