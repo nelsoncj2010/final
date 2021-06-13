@@ -2,9 +2,9 @@
 firebase.auth().onAuthStateChanged(async function(user) {
     if (user) {
 
-      // Signed in
-      console.log('signed in')
-    
+        // Signed in
+        console.log('signed in')
+        
         // Build the markup for the sign-out button and set the HTML in the header
         document.querySelector(`.sign-in-or-sign-out`).innerHTML = `
         <button class="text-pink-500 underline sign-out">Sign Out</button>
@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
         // get a reference to the sign out button
         let signOutButton = document.querySelector(`.sign-out`)
-    
+
         // handle the sign out button click
         signOutButton.addEventListener(`click`, function(event) {
             // sign out of firebase authentication
@@ -32,6 +32,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
         let displayDiv = document.querySelector(`.restaurant-info`)
         console.log(displayDiv)
         console.log(restaurants[0].name)
+
+        let allDivs = document.querySelectorAll(`div`)
 
         restaurants.forEach(function(retaurantJson) {
             console.log("THIS HAPPENED")
